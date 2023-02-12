@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        margin: 100px;
+        transition: all 1s;
+        transition-timing-function: ease-in-out;
+      }
+
+      .div1 {
+        background-color: skyblue;
+      }
+
+      .div2 {
+        background-color: orange;
+      }
+
+      .div2:hover {
+        transform: rotate(495deg);
+      }
+
+      .div3 {
+        top: 200px;
+        background-color: skyblue;
+      }
+
+      .div4 {
+        top: 200px;
+        background-color: orange;
+      }
+
+      .div4:hover {
+        transform: perspective(600px) rotateX(495deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+  </body>
+</html>

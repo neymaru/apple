@@ -1,0 +1,47 @@
+/* ICONS */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+body {
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+header {
+}
+
+header .inner {
+  width: 1100px;
+  background-color: beige;
+  margin: 0 auto;
+}
+
+head .inner .logo {
+  left: 0;
+}
+
+head .inner .sub-menu {
+}
+
+head .inner .sub-menu > ul {
+  display: flex;
+}
+
+head .inner .sub-menu > ul > li {
+}
+
+head .inner .main-menu {
+}
+
+head .inner .main-menu > ul > li {
+}
+
+header .sub-menu .search .material-symbols-outlined {
+  position: absolute;
+  font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 0, "opsz" 48;
+  height: 24px;
+  top: 0;
+  bottom: 0;
+  right: 3px;
+  margin: auto;
+}

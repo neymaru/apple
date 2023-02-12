@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Kdt(name, gender) {
+        this.name = name;
+        this.gender = gender;
+        this.show = function () {
+          console.log(`제 이름은 ${this.name}이고 성별은 ${this.gender}입니다`);
+        };
+      }
+
+      let student1 = new Kdt("윤제", "남자");
+      let student2 = new Kdt("백진솔", "여자");
+      let student3 = new Kdt("신상아", "여자");
+      let student4 = new Kdt("송선미", "여자");
+
+      student1.show();
+      student2.show();
+      student3.show();
+      student4.show();
+    </script>
+  </body>
+</html>

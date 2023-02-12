@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let pororo = {
+        name: "뽀로로",
+        age: 7,
+        showHeight,
+        say() {
+          console.log("뽀로로는 귀엽습니다");
+        },
+        showName() {
+          console.log(`제 이름은 ${this.name}입니다`);
+        },
+      };
+
+      function showHeight() {
+        console.log(`제 키는 ${this.height} 입니다.`);
+      }
+
+      console.log(pororo.name);
+      console.log(pororo.age);
+
+      pororo.gender = "M";
+      console.log(pororo.gender);
+      pororo.height = 155;
+      console.log(pororo.height);
+      delete pororo.gender;
+      console.log(pororo);
+
+      console.log("name" in pororo);
+      console.log("height" in pororo);
+
+      for (let key in pororo) {
+        console.log(key, " : ", pororo[key]);
+        // console.log(pororo[key]);
+      }
+
+      pororo.say();
+      pororo.showName();
+      pororo.showHeight();
+    </script>
+  </body>
+</html>

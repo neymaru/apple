@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./main.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body class="">
+    <!-- 로그인 모달창 -->
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="password" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+    <!-- 다크모드 -->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Navbar</span>
+        <span class="badge bg-dark">Dark 🔄</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 리스트 그룹 -->
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <script>
+      var click = 0;
+
+      $(".navbar-toggler").click(function () {
+        click++;
+        if (click % 2 == 1) {
+          $(".list-group").addClass("show");
+        } else {
+          $(".list-group").removeClass("show");
+        }
+      });
+    </script>
+
+    <!-- 대문 -->
+    <div class="main-bg">
+      <h4>Shirts on Slae</h4>
+      <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+    <div style="width: 200px; height: 100px; overflow-y: scroll">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus unde
+      asperiores tenetur cupiditate nostrum voluptatibus dignissimos
+      repudiandae, distinctio autem suscipit! Nisi sit inventore totam vel
+      provident magni tempore saepe veritatis.
+    </div>
+
+    <!-- 5초 사은품 -->
+    <!-- <div class="alert alert-danger">
+      <span class="sec">5</span>초 이내 구매시 사은품 증정! 
+    </div>-->
+
+    <!-- 캐러샐 -->
+    <div style="overflow: hidden">
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="./images/car1.png" alt="" />
+        </div>
+        <div class="slide-box">
+          <img src="./images/car2.png" alt="" />
+        </div>
+        <div class="slide-box">
+          <img src="./images/car3.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <button class="pre">이전</button>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="next">다음</button>
+
+    <script>
+      let 지금사진 = 1;
+      $(".slide-1").click(function () {
+        $(".slide-container").css("transform", "translateX(0vw)");
+        지금사진 = 1;
+      });
+      $(".slide-2").click(function () {
+        $(".slide-container").css("transform", "translateX(-100vw)");
+        지금사진 = 2;
+      });
+      $(".slide-3").click(function () {
+        $(".slide-container").css("transform", "translateX(-200vw)");
+        지금사진 = 3;
+      });
+      $(".pre").click(function () {
+        $(".slide-container").css(
+          "transform",
+          `translateX(-${지금사진 * 100 - 200}vw)`
+        );
+        지금사진--;
+      });
+      $(".next").click(function () {
+        $(".slide-container").css("transform", `translateX(-${지금사진}00vw)`);
+        지금사진++;
+      });
+    </script>
+    <script>
+      // 다크모드
+      var count = 0;
+      $(".badge").click(function () {
+        count += 1;
+        if (count % 2 == 1) {
+          $(".badge").html("Light 🔄");
+          $(".navbar").removeClass("navbar-light bg-light");
+          $(".navbar").addClass("navbar-dark bg-dark");
+          $("body").addClass("dark");
+        } else {
+          $(".badge").html("Dark 🔄");
+          $(".navbar").removeClass("navbar-dark bg-dark");
+          $(".navbar").addClass("navbar-light bg-light");
+          $("body").removeClass("dark");
+        }
+      });
+
+      // 로그인 버튼 누르면 모달창 띄우기
+      $("#login").on("click", function () {
+        $(".black-bg").addClass("show-modal");
+      });
+
+      // 닫기버튼 누르면 모달창 닫기
+
+      $("#close").on("click", function () {
+        $(".black-bg").removeClass("show-modal");
+      });
+
+      // 전송버튼 누르면
+      // 저기 input에 입력한 값이 공백이면 알림창 띄우기
+      $("form").on("submit", function () {
+        var 입력한값 = document.getElementById("email").value;
+        var 입력비번 = document.getElementById("password").value;
+        if (입력한값 == "") {
+          alert("아이디 입력 안함");
+        }
+        if (!/\S+@\S+.\S+/.test(입력한값)) {
+          alert("이메일 형식 아님");
+        }
+        if (!/[A - Z]/.test(입력한값)) {
+          alert("비번에 영어 대문자 한 개 이상 입력해주세요");
+        }
+      });
+
+      // 사은품 알럿창 5초 뒤에 지우기
+      let sec = $(".sec").html();
+      setInterval(function () {
+        if (sec > 0) {
+          $(".sec").html(sec - 1);
+          sec--;
+        } else {
+          $(".alert").hide();
+        }
+      }, 1000);
+
+      // 스크롤바 내리면 로고 크기 줄이기
+      // window.addEventListener("scroll", function () {
+      //   if (window.scrollY == 100) {
+      //     document
+      //       .getElementsByClassName(".navbar-brand")
+      //       .css(font - size, "10px");
+      //   }
+      // });
+      window.addEventListener("scroll", function () {
+        let 스크롤양 = window.scrollY;
+        if (스크롤양 > 200) {
+          document.querySelector(".navbar-brand").style.fontSize = "20px";
+        } else {
+          document.querySelector(".navbar-brand").style.fontSize = "30px";
+        }
+      });
+
+      document
+        .querySelector(".black-bg")
+        .addEventListener("click", function (f) {
+          if (f.target === document.querySelector(".black-bg")) {
+            document.querySelector(".black-bg").classList.remove("show-modal");
+          }
+        });
+    </script>
+  </body>
+</html>

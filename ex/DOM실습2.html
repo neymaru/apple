@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightgray;
+      }
+
+      .orange {
+        background-color: orange;
+      }
+
+      .skyblue {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      let boxEl = document.querySelector(".box");
+      boxEl.addEventListener("click", function () {
+        if (boxEl.classList.contains("orange")) {
+          boxEl.classList.remove("orange");
+          boxEl.classList.add("skyblue");
+        } else {
+          boxEl.classList.remove("skyblue");
+          boxEl.classList.add("orange");
+        }
+      });
+    </script>
+    <br />
+    <input type="text" class="input-box" />
+    <br />
+    <span class="text-1">가나다라마바사</span>
+    <br />
+    <span class="text-2">가나다라마바사</span>
+    <br />
+    <button class="btn-1">버튼1</button>
+    <button class="btn-2">버튼2</button>
+
+    <script>
+      document.querySelector(".btn-1").addEventListener("click", function () {
+        document
+          .querySelector(".input-box")
+          .setAttribute("placeholder", "아이디를 입력하세요");
+        document.querySelector(".text-1").textContent = "아이디를 입력하세요";
+      });
+
+      document.querySelector(".btn-2").addEventListener("click", function () {
+        let userInputText = document.querySelector(".input-box").value;
+        document.querySelector(".text-2").textContent = userInputText;
+      });
+    </script>
+  </body>
+</html>

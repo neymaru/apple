@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let str = "H-e-l-l-o";
+      // let strArr = str.split("-");
+      // console.log(strArr);
+
+      let str = "Hello!";
+      strArr = str.split("");
+      console.log(strArr);
+
+      let reverseStr = strArr.reverse();
+      console.log(reverseStr);
+
+      let strJoin = strArr.join("");
+      console.log(strJoin);
+      console.log(str.split("").reverse().join(""));
+
+      const kdtCurriculum = ["HTML", "CSS", "JS", "BACKEND", "REACT"];
+      const result1 = kdtCurriculum[0].split("").reverse().join("");
+      const result2 = kdtCurriculum[4].split("").reverse().join("");
+      console.log(result1);
+      console.log(result2);
+
+      let arr = ["손흥민", "황희찬", "김민재", "이강인"];
+      let result3 = arr[0].split("").reverse().join("");
+      let result4 = arr[3].split("").reverse().join("");
+      console.log(result1);
+      console.log(result2);
+    </script>
+  </body>
+</html>
