@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background-color: lightgray;
+      }
+
+      .color1 {
+        background-color: red;
+      }
+      .color2 {
+        background-color: orange;
+      }
+      .color3 {
+        background-color: yellow;
+      }
+      .color4 {
+        background-color: green;
+      }
+      .color5 {
+        background-color: blue;
+      }
+      .color6 {
+        background-color: navy;
+      }
+      .color7 {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">버튼</button>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <script>
+      document.querySelector(".btn").addEventListener("click", function () {
+        document.querySelectorAll(".box").forEach(function (b, index) {
+          b.classList.add(`color${index + 1}`);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -99,32 +99,26 @@
 
     <!-- 셔츠 선택하면 사이즈 나오게 -->
     <script>
-      document
-        .querySelectorAll(".form-select")[0]
-        .addEventListener("click", function (e) {
-          if (this.value === "셔츠") {
-            document
-              .querySelectorAll(".form-select")[1]
-              .classList.remove("form-hide");
-            let templete = `<option>95</option>
+      let pants = [28, 30, 32, 34];
+      document.querySelectorAll(".form-select")[0].addEventListener("click", function (e) {
+        if (this.value === "셔츠") {
+          document.querySelectorAll(".form-select")[1].classList.remove("form-hide");
+          let templete = `<option>95</option>
         <option>100</option>
         <option>105</option>`;
-            document.querySelectorAll(".form-select")[1].innerHTML = templete;
-            console.log(templete);
-          } else if (this.value === "바지") {
-            document
-              .querySelectorAll(".form-select")[1]
-              .classList.remove("form-hide");
-            let templete = `<option>28</option>
-        <option>30</option>`;
-            document.querySelectorAll(".form-select")[1].innerHTML = templete;
-            console.log(templete);
-          } else {
-            document
-              .querySelectorAll(".form-select")[1]
-              .classList.add("form-hide");
-          }
-        });
+          document.querySelectorAll(".form-select")[1].innerHTML = templete;
+          console.log(templete);
+        } else if (this.value === "바지") {
+          document.querySelectorAll(".form-select")[1].classList.remove("form-hide");
+          $(".form-select").eq(1).html("");
+          pants.forEach(function (pant) {
+            // document.querySelectorAll(".form-select")[1].insertAdjacentElement("beforeend", `<option>${pant}</option>`);
+            $(".form-select").eq(1).append(`<opriont>${pant}</option>`);
+          });
+        } else {
+          document.querySelectorAll(".form-select")[1].classList.add("form-hide");
+        }
+      });
     </script>
 
     <div class="container mt-5">

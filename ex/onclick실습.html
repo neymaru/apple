@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        width: 200px;
+        height: 200px;
+        background-color: lightgray;
+      }
+
+      .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: lightgray;
+        margin-top: 20px;
+      }
+
+      .orange {
+        background-color: orange;
+      }
+
+      .skyblue {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2" onclick="changeColor();"></div>
+
+    <script>
+      let box1 = document.querySelector(".box1");
+      let box2 = document.querySelector(".box2");
+
+      box1.addEventListener("click", function () {
+        if (box1.classList.contains("orange")) {
+          box1.classList.remove("orange");
+          box1.classList.add("skyblue");
+        } else {
+          box1.classList.remove("skyblue");
+          box1.classList.add("orange");
+        }
+      });
+
+      function changeColor() {
+        box2.addEventListener("click", function () {
+          if (box2.classList.contains("orange")) {
+            box2.classList.remove("orange");
+            box2.classList.add("skyblue");
+          } else {
+            box2.classList.remove("skyblue");
+            box2.classList.add("orange");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .box {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      #box-1 {
+        background-color: red;
+      }
+
+      #box-2 {
+        background-color: green;
+        top: 100vh;
+      }
+
+      #box-3 {
+        background-color: blue;
+        top: 200vh;
+      }
+
+      #box-4 {
+        background-color: yellow;
+        top: 300vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box-1" class="box"></div>
+    <div id="box-2" class="box"></div>
+    <div id="box-3" class="box"></div>
+    <div id="box-4" class="box"></div>
+
+    <script>
+      const boxes = document.querySelectorAll(".box");
+      let currentBoxIndex = 0;
+      let previousScrollPosition = 0;
+
+      function scrollHandler(e) {
+        const currentScrollPosition = window.scrollY;
+
+        // Calculate the direction of the scroll
+        const direction = currentScrollPosition > previousScrollPosition ? "down" : "up";
+        previousScrollPosition = currentScrollPosition;
+
+        // Calculate the index of the current box based on the scroll position
+        let index = 0;
+        let cumulativeHeight = 0;
+        while (cumulativeHeight <= currentScrollPosition) {
+          cumulativeHeight += boxes[index].offsetHeight;
+          index++;
+        }
+        index--;
+
+        // If the direction is down and the current box is not the last box, move to the next box
+        if (direction === "down" && index < boxes.length - 1) {
+          currentBoxIndex = index + 1;
+        }
+        // If the direction is up and the current box is not the first box, move to the previous box
+        else if (direction === "up" && index > 0) {
+          currentBoxIndex = index - 1;
+        }
+
+        // Move the boxes to their new positions
+        for (let i = 0; i < boxes.length; i++) {
+          boxes[i].style.top = `${-currentScrollPosition}px`;
+        }
+        boxes[currentBoxIndex].style.top = `${-(currentScrollPosition % boxes[currentBoxIndex].offsetHeight)}px`;
+      }
+
+      window.addEventListener("scroll", scrollHandler);
+    </script>
+  </body>
+</html>
